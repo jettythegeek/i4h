@@ -1,8 +1,13 @@
 import "./globals.css";
+import "./header-overrides.css";
+import "./content-fixes.css";
+import "./about-design.css";
+import "./blog-design.css";
 
 export const metadata = {
-  title: "Internet for Humanity | Connecting Communities in Uganda",
-  description: "Help rural communities in Uganda access computer labs, reliable internet, and practical digital skills.",
+  metadataBase: new URL("https://christshandsskill.org"),
+  title: { default: "Christ’s Hands Centre", template: "%s | Christ’s Hands Centre" },
+  description: "To empower vulnerable women, single mothers, and youth in Uganda through vocational skills training, education, nutrition, childcare, and psychosocial support, enabling families to achieve self-reliance and long-term stability.",
 };
 
 export default function RootLayout({ children }) {

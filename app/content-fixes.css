@@ -1,0 +1,18 @@
+.content-block{margin-top:64px}.content-list{margin:0;padding-left:22px}.content-list li{margin:0 0 12px;line-height:1.6}.priority-box{margin-top:42px;padding:32px;border:2px solid currentColor;border-radius:8px;font-size:19px;line-height:1.65}.section-title{margin:0;font:750 48px/1.05 Outfit}.prose-intro h3{font:750 28px Outfit}.prose-intro blockquote,.split-copy blockquote{margin:28px 0;padding:22px 26px;border-left:5px solid var(--secondary);font-size:21px;line-height:1.6}.white-text blockquote{border-color:#fff}.info-card .content-list{padding-left:18px}.info-card .content-list li{margin-bottom:8px}
+
+@media(max-width:720px){
+  .hero h1{font-size:34px;line-height:1.02}
+  .hero-card h2{font-size:25px}
+  .page-hero h1{font-size:36px;line-height:1.02}
+  .section-lead h2,.split h2,.impact-grid h2,.closing .section-lead h2{font-size:32px;line-height:1.08}
+  .prose-intro h2,.section-title{font-size:34px;line-height:1.08}
+  .prose-intro h3{font-size:24px;line-height:1.15}
+  .cost h2{font-size:32px}
+  .story h3,.program-card h3,.post-card h2{font-size:24px;line-height:1.15}
+  .info-card h3{font-size:23px;line-height:1.15}
+}
+
+@media(max-width:380px){
+  .hero h1{font-size:32px}
+  .page-hero h1{font-size:33px}
+}

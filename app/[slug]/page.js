@@ -1,25 +1,8 @@
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import OriginalInternalPage, { getOriginalTitle, topLevelRoutes } from "@/components/OriginalInternalPage";
+import InternalPage, { slugs } from "@/components/InternalPage";
 
-export function generateStaticParams() {
-  return [...topLevelRoutes].map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  if (!topLevelRoutes.has(slug)) return {};
-  return { title: await getOriginalTitle(slug) };
-}
-
-export default async function InternalPage({ params }) {
-  const { slug } = await params;
-  if (!topLevelRoutes.has(slug)) notFound();
-
-  return <>
-    <Header />
-    <OriginalInternalPage pathname={slug} />
-    <Footer />
-  </>;
-}
+export function generateStaticParams(){return [...slugs].map(slug=>({slug}))}
+export async function generateMetadata({params}){const {slug}=await params;if(!slugs.has(slug))return{};return{title:slug.split("-").map(x=>x[0].toUpperCase()+x.slice(1)).join(" ")}}
+export default async function Page({params}){const {slug}=await params;if(!slugs.has(slug))notFound();return <><Header/><InternalPage slug={slug}/><Footer/></>}

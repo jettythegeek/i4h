@@ -4,32 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight, CaretDown, List, MagnifyingGlass, X } from "@phosphor-icons/react";
+import { searchItems as searchPages } from "@/data/site";
 
 const groups = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about", items: [["Mission, Vision, & Values", "/about#mission", "/images/menu/mission.png"], ["History", "/about#history", "/images/menu/history.webp"], ["Theory of Change", "/about#theory", "/images/menu/theory.webp"], ["Our Team", "/about#team", "/images/menu/team.webp"]] },
-  { label: "What We Do", href: "/what-we-do", wide: true, items: [["Where We Work", "/what-we-do#where", "/images/menu/where.webp"], ["Who We Serve", "/what-we-do#serve", "/images/menu/serve.webp"], ["Programs", "/what-we-do#programs", "/images/menu/programs.webp"], ["What We Prioritize", "/what-we-do#priorities", "/images/menu/priorities.webp"], ["Success Stories", "/success-stories", "/images/menu/stories.webp"]] },
+  { label: "About Us", href: "/about", items: [["Mission, Vision & Values", "/about#mission", "/images/chs/about-cover.jpeg"], ["History", "/about#history", "/images/chs/about-mission.jpg"], ["Theory of Change", "/about#theory", "/images/chs/theory.jpeg"], ["Our Team", "/about#team", "/images/chs/home-who.jpeg"]] },
+  { label: "What We Do", href: "/what-we-do", items: [["Where We Work", "/what-we-do#where", "/images/chs/where-we-work.jpeg"], ["Who We Serve", "/what-we-do#serve", "/images/chs/home-who.jpeg"], ["What We Prioritize", "/what-we-do#priorities", "/images/chs/home-accountability.jpeg"], ["Success Stories", "/success-stories", "/images/chs/impact.jpeg"]] },
+  { label: "Programs", href: "/programs" },
   { label: "Impact", href: "/impact" },
-  { label: "Support Our Mission", href: "/partner", small: true, items: [["Partner With Us", "/partner", "/images/menu/partner.png"], ["Donate", "/donate", "/images/menu/donate.png"]] },
-  { label: "Contact Us", href: "/contact" },
   { label: "Blog", href: "/blog" },
-];
-
-const searchPages = [
-  ["Page", "Home", "/", "Help rural schools, farmer cooperatives, and healthcare facilities access community-run ICT Centres."],
-  ["Page", "About us", "/about", "Our mission, vision, values, history, theory of change, and the team helping close the digital divide."],
-  ["Page", "What we do", "/what-we-do", "Affordable ICT Centres and practical digital skills help unlock education, agriculture, healthcare, and economic opportunity."],
-  ["Page", "Impact", "/impact", "See how hundreds of active ICT Centres help communities across Uganda, with annual reports and accountability."],
-  ["Page", "Partner with us", "/partner", "Partners help make scalable digital access possible through funding, connectivity, equipment, and expertise."],
-  ["Page", "Donate", "/donate", "Help fund a computer lab in Uganda. CA$6,500 funds one complete five-computer ICT Centre."],
-  ["Page", "Contact us", "/contact", "Our team is happy to help with partnerships, donations, media enquiries, volunteering, and general questions."],
-  ["Page", "Success stories", "/success-stories", "See how practical connectivity and digital literacy help improve education, rural markets, and healthcare."],
-  ["Page", "Blog", "/blog", "Help create the next story of impact through field notes, program updates, and community-managed computer labs."],
-  ["Post", "Why community-managed computer labs last", "/blog/why-community-managed-labs-last", "Local co-funding, secure space, and trained administrators help every centre remain useful."],
-  ["Post", "What a first computer lab means for a rural school", "/blog/what-a-first-computer-lab-means", "A five-computer lab helps students gain repeated practical experience before national examinations."],
-  ["Post", "From connectivity to a development project", "/blog/from-connectivity-to-a-development-project", "How internet access helped a farmer cooperative prepare documents and reach new partners."],
-  ["Page", "Privacy notice", "/privacy-policy", "How Internet for Humanity collects, uses, protects, and stores personal information."],
-  ["Page", "Terms of use", "/terms-of-service", "The terms covering use of the Internet for Humanity website, donations, content, and services."],
+  { label: "Partner With Us", href: "/partner" },
 ];
 
 function Highlight({ text, query }) {
@@ -64,7 +48,7 @@ export default function Header() {
 
   return <header className="site-header">
     <nav className="site-nav" aria-label="Primary">
-      <Link aria-label="Internet for Humanity home" href="/" className="header-logo"><Image src="/images/logo.png" alt="Internet for Humanity" width={420} height={140} priority /></Link>
+      <Link aria-label="Christ’s Hands Centre home" href="/" className="header-logo"><Image src="/images/chs/logo.png" alt="Christ’s Hands Centre" width={420} height={180} priority /></Link>
       <ul className="desktop-nav">{groups.map(group => <li className="nav-item" key={group.label}>
         <Link href={group.href} className={group.href === "/" ? "current" : ""}>{group.label}{group.items && <CaretDown className="nav-caret" size={14} weight="bold" />}</Link>
         {group.items && <div className="mega-shell"><div className={`mega-menu ${group.wide ? "five" : group.small ? "two" : "four"}`}>{group.items.map(([label, href, image]) => <Link className="mega-card" href={href} key={label}><span className="mega-orb"><Image src={image} alt="" fill sizes="132px" /></span><strong>{label}</strong></Link>)}</div></div>}
