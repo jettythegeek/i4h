@@ -21,3 +21,14 @@
   .hero h1{font-size:32px}
   .page-hero h1{font-size:33px}
 }
+
+.mobile-section-tabs{display:none}
+@media(max-width:720px){
+  .mobile-section-tabs{position:sticky;top:76px;z-index:40;display:grid;grid-template-columns:26px minmax(0,1fr) 26px;align-items:center;padding:9px 4px;background:var(--paper);border-bottom:1px solid #17171918;box-shadow:0 8px 20px #0000000a}
+  .mobile-section-tabs>button{width:24px;height:40px;display:grid;place-items:center;border:0;background:transparent;color:#8b8b8b}
+  .mobile-section-track{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;overscroll-behavior-x:contain}
+  .mobile-section-track::-webkit-scrollbar{display:none}
+  .mobile-section-track a{flex:0 0 auto;min-height:44px;padding:0 14px;display:flex;align-items:center;border-radius:7px;color:#625f5d;font:700 14px Outfit;white-space:nowrap;scroll-snap-align:start}
+  .mobile-section-track a.active{background:var(--brand);color:#fff}
+  .internal-main section[id]{scroll-margin-top:156px}
+}

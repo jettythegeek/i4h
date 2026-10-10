@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Baby, Briefcase, EnvelopeSimple, ForkKnife, GraduationCap, HandHeart, HouseLine, MapPin, Phone, UsersThree, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { posts, programs } from "@/data/site";
+import MobileSectionTabs from "@/components/MobileSectionTabs";
 
 const pageData={
   about:{eyebrow:"About us",title:"The Poverty, Skills, and Care Crisis Facing Vulnerable Families in Uganda",intro:"Christ’s Hands Centre exists to restore dignity, stability, and opportunity by addressing these challenges together - skills, food, care, and emotional support - not in isolation.",image:"/images/chs/about-cover.jpeg"},
@@ -17,9 +18,13 @@ const pageData={
   "terms-of-service":{eyebrow:"Legal",title:"Terms of use",intro:"Christ’s Hands Centre Society",image:"/images/chs/about-mission.jpg"},
 };
 export const slugs=new Set(Object.keys(pageData));
+const sectionTabs={
+  about:[{label:"Mission, vision and values",href:"#mission"},{label:"History",href:"#history"},{label:"Theory of change",href:"#theory"},{label:"Our team",href:"#team"}],
+  "what-we-do":[{label:"Where we work",href:"#where"},{label:"Who we serve",href:"#serve"},{label:"What we prioritize",href:"#priorities"}],
+};
 const Button=({href,children,tone="dark"})=><Link href={href} className={`button ${tone}`}>{children}<ArrowUpRight size={14} weight="bold"/></Link>;
 
-export default function InternalPage({slug}){const p=pageData[slug];return <main className="internal-main"><section className="page-hero"><Image src={p.image} alt="" fill priority className="cover"/><div className="page-hero-shade"/><div className="wrap page-hero-copy"><span className="eyebrow">{p.eyebrow}</span><h1>{p.title}</h1><p>{p.intro}</p></div></section>{renderBody(slug)}</main>}
+export default function InternalPage({slug}){const p=pageData[slug];return <main className="internal-main"><section className="page-hero"><Image src={p.image} alt="" fill priority className="cover"/><div className="page-hero-shade"/><div className="wrap page-hero-copy"><span className="eyebrow">{p.eyebrow}</span><h1>{p.title}</h1><p>{p.intro}</p></div></section><MobileSectionTabs items={sectionTabs[slug]}/>{renderBody(slug)}</main>}
 
 function renderBody(slug){switch(slug){
   case "about":return <>
@@ -43,7 +48,8 @@ function renderBody(slug){switch(slug){
   case "privacy-policy":case "terms-of-service":return <section className="section paper"><div className="wrap prose-intro"><h2>{pageData[slug].title}</h2><p>Christ’s Hands Centre Society</p><p>Charity registration No: 79734 2367 RR0001</p></div></section>;
 }}
 
-function Info({title,children}){return <article className="info-card"><h3>{title}</h3><div>{children}</div></article>}
+const teamImages={"Ntono Moreen":"/images/chs/team/ntono-moreen.jpg","Tabula Robert":"/images/chs/team/tabula-robert.jpg","Robert Porter":"/images/chs/team/robert-porter.jpg"};
+function Info({title,children}){const teamImage=teamImages[title];return <article className={`info-card${teamImage?" team-card":""}`}>{teamImage&&<div className="team-photo"><Image src={teamImage} alt={title} fill sizes="(max-width: 720px) 100vw, 33vw"/></div>}<h3>{title}</h3><div>{children}</div></article>}
 function List({items}){return <ul className="content-list">{items.map(item=><li key={item}>{item}</li>)}</ul>}
 function GoalsGrid(){const goals=[
   [Briefcase,"Equip vulnerable women and youth with market-relevant vocational skills that enable employment, self-employment, and sustainable income generation."],
