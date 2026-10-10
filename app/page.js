@@ -18,7 +18,7 @@ const Button = ({ href, children, tone = "dark" }) => <Link className={`button $
 export default function Home() {
   return <>
     <Header />
-    <main id="main">
+    <main id="main" className="home-main">
       <section className="hero">
         <Image src="/images/hero.webp" alt="An instructor leading a computer training session in an ICT Centre" fill priority className="cover" />
         <div className="hero-shade" />
