@@ -2,6 +2,11 @@
 
 @media(max-width:720px){
   .hero h1{font-size:34px;line-height:1.02}
+  .home-main .hero{overflow:visible}
+  .home-main .hero-inner{align-content:center;padding-top:0;padding-bottom:160px}
+  .home-main .hero-copy{transform:translateY(-64px)}
+  .hero-card{position:absolute;left:4px;right:4px;bottom:-40px;width:auto;margin:0;transform:none}
+  .home-main .hero+.section{padding-top:116px}
   .hero-card h2{font-size:25px}
   .page-hero h1{font-size:36px;line-height:1.02}
   .section-lead h2,.split h2,.impact-grid h2,.closing .section-lead h2{font-size:32px;line-height:1.08}
