@@ -1,5 +1,9 @@
 .content-block{margin-top:64px}.content-list{margin:0;padding-left:22px}.content-list li{margin:0 0 12px;line-height:1.6}.priority-box{margin-top:42px;padding:32px;border:2px solid currentColor;border-radius:8px;font-size:19px;line-height:1.65}.section-title{margin:0;font:750 48px/1.05 Outfit}.prose-intro h3{font:750 28px Outfit}.prose-intro blockquote,.split-copy blockquote{margin:28px 0;padding:22px 26px;border-left:5px solid var(--secondary);font-size:21px;line-height:1.6}.white-text blockquote{border-color:#fff}.info-card .content-list{padding-left:18px}.info-card .content-list li{margin-bottom:8px}
 
+.home-main .hero-card{background:var(--brand)}
+.home-main .hero+.section{background:#eef1ff}
+.home-main .hero+.section .stat strong{color:var(--brand)}
+
 @media(max-width:720px){
   .hero h1{font-size:34px;line-height:1.02}
   .home-main .hero{overflow:visible}

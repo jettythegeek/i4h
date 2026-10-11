@@ -3,6 +3,7 @@ import "./header-overrides.css";
 import "./content-fixes.css";
 import "./about-design.css";
 import "./blog-design.css";
+import "./donate-design.css";
 
 export const metadata = {
   metadataBase: new URL("https://christshandsskill.org"),
