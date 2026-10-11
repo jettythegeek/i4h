@@ -11,7 +11,7 @@ export const postType = defineType({
       title: "Slug",
       type: "slug",
       options: { source: "title", maxLength: 96 },
-      validation: rule => rule.required(),
+      validation: rule => rule.required().custom(value => !value?.current || /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value.current) || "Use lowercase letters, numbers, and hyphens only (for example: hello-world)."),
     }),
     defineField({ name: "excerpt", title: "Excerpt", type: "text", rows: 3, validation: rule => rule.required().max(240) }),
     defineField({
