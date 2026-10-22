@@ -13,7 +13,7 @@ const groups = [
   { label: "Programs", href: "/programs" },
   { label: "Impact", href: "/impact" },
   { label: "Blog", href: "/blog" },
-  { label: "Partner With Us", href: "/partner" },
+  { label: "Support Our Mission", href: "/donate", small: true, items: [["Partner With Us", "/partner", "/images/chs/partnerships-cover.jpeg"], ["Donate", "/donate", "/images/chs/donate-cover.jpeg"]] },
 ];
 
 function Highlight({ text, query }) {

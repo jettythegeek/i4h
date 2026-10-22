@@ -1,13 +1,13 @@
 export const programs=[
-{slug:"fashion-tailoring",title:"Fashion Design and Tailoring Department",image:"/images/chs/programs/program-1.jpg",since:"April 2024",text:"Equips individuals with skills in fashion design and pattern making since April 2024."},
-{slug:"metal-fabrication",title:"Metal Fabrication Department",image:"/images/chs/programs/program-2.jpg",since:"April 2024",text:"Equips individuals with hands-on metalworking skills, fostering innovation, entrepreneurship, and self-sufficiency since April 2024."},
-{slug:"computer-training",title:"Computer Training Department",image:"/images/chs/programs/program-3.jpg",since:"April 2024",text:"Equips individuals with essential computer skills, enhancing employability and digital literacy since April 2024."},
-{slug:"liquid-soap",title:"Liquid Soap Making Department",image:"/images/chs/programs/program-4.jpg",since:"April 2024",text:"Equips individuals with hands-on skills to craft high-quality soap products, guided by expert trainers since April 2024."},
-{slug:"bar-soap",title:"Bar Soap Making Department",image:"/images/chs/programs/program-5.jpg",since:"April 2024",text:"Equips individuals with hands-on skills to craft high-quality bar soaps, guided by expert trainers."},
-{slug:"bakery",title:"Bakery and Confectionery Department",image:"/images/chs/programs/program-6.jpg",since:"May 2024",text:"Equips individuals with hands-on skills in baking, guided by expert instructors since May 2024."},
-{slug:"notebook-making",title:"Note Book Making Department",image:"/images/chs/programs/program-7.jpg",since:"April 2024",text:"Equips individuals with skills in bookbinding, book repair, and book design."},
-{slug:"hair-salon",title:"Hair and Salon Department",image:"/images/chs/programs/program-8.jpg",since:"April 2024",text:"Provides comprehensive training in hairstyling, grooming, and beauty services, equipping students for success in the beauty industry."},
-{slug:"childcare-education",title:"Our Child Care and Education Department",image:"/images/chs/programs/program-10.jpg",since:"August 2024",text:"Trains children in happiness and positivity regardless of circumstances."}
+{slug:"fashion-tailoring",title:"Fashion Design and Tailoring Department",image:"/images/chs/programs/program-7.jpg",since:"April 2024",text:"Equips individuals with skills in fashion design and pattern making since April 2024."},
+{slug:"metal-fabrication",title:"Metal Fabrication Department",image:"/images/chs/programs/program-5.jpg",since:"April 2024",text:"Equips individuals with hands-on metalworking skills, fostering innovation, entrepreneurship, and self-sufficiency since April 2024."},
+{slug:"computer-training",title:"Computer Training Department",image:"/images/chs/programs/program-8.jpg",since:"April 2024",text:"Equips individuals with essential computer skills, enhancing employability and digital literacy since April 2024."},
+{slug:"liquid-soap",title:"Liquid Soap Making Department",image:"/images/chs/programs/program-2.jpg",since:"April 2024",text:"Equips individuals with hands-on skills to craft high-quality soap products, guided by expert trainers since April 2024."},
+{slug:"bar-soap",title:"Bar Soap Making Department",image:"/images/chs/programs/program-10.jpg",since:"April 2024",text:"Equips individuals with hands-on skills to craft high-quality bar soaps, guided by expert trainers."},
+{slug:"bakery",title:"Bakery and Confectionery Department",image:"/images/chs/programs/program-1.jpg",since:"May 2024",text:"Equips individuals with hands-on skills in baking, guided by expert instructors since May 2024."},
+{slug:"notebook-making",title:"Note Book Making Department",image:"/images/chs/programs/program-3.jpg",since:"April 2024",text:"Equips individuals with skills in bookbinding, book repair, and book design."},
+{slug:"hair-salon",title:"Hair and Salon Department",image:"/images/chs/programs/program-4.jpg",since:"April 2024",text:"Provides comprehensive training in hairstyling, grooming, and beauty services, equipping students for success in the beauty industry."},
+{slug:"childcare-education",title:"Our Child Care and Education Department",image:"/images/chs/programs/program-6.jpg",since:"August 2024",text:"Trains children in happiness and positivity regardless of circumstances."}
 ];
 
 export const posts=[
