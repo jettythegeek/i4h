@@ -24,4 +24,6 @@ export const searchItems=[
 ["Page","Impact","/impact","Impact to date and Canadian Registered Charity"],
 ["Page","Partner with us","/partner","Public · Private · Strategic partners"],
 ["Page","Donate","/donate","Help provide skills training for vulnerable families in Uganda"],
+["Page","Donor Advised Funds","/donate/donor-advised-funds","Recommend a grant through your DAF to support Christ’s Hands Centre Society"],
+["Page","Legacy Giving","/donate/legacy-giving","Leave a gift in your will to empower women and youth"],
 ...programs.map(p=>["Program",p.title,`/programs/${p.slug}`,p.text]),...posts.map(p=>["Post",p.title,`/blog/${p.slug}`,p.excerpt])];

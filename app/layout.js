@@ -4,6 +4,7 @@ import "./content-fixes.css";
 import "./about-design.css";
 import "./blog-design.css";
 import "./donate-design.css";
+import "./giving-detail.css";
 import "./review-updates.css";
 
 export const metadata = {

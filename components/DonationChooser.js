@@ -35,13 +35,13 @@ const countries={
     legal:"Christ’s Hands Centre is a Non-Profit Society incorporated in British Columbia",
     registrationTitle:"CRA Registered Charity",registration:"Registration #79734 2367 RR0001",
     options:[
-      {icon:CreditCard,title:"Donate via PayPal",fee:"1.9% fee deducted",copy:"Secure credit card processing through PayPal.",cta:"DONATE WITH PAYPAL",href:"https://christshandscentre.org/donate/"},
+      {icon:CreditCard,title:"Donate via PayPal",fee:"1.9% fee deducted",copy:"Secure credit card processing through PayPal.",paypalId:"6B47N7AJ4X5R8",paypalPixel:"https://www.paypal.com/en_CA/i/scr/pixel.gif"},
       {icon:CreditCard,title:"Donate via CanadaHelps",fee:"4.0% fee deducted",copy:"CanadaHelps is a separate CRA-registered Canadian Charity. Donations to CanadaHelps automatically receive CRA charitable-contribution tax receipts from CanadaHelps, not CHC.",cta:"DONATE WITH CANADAHELPS",href:"https://www.canadahelps.org/en/dn/143189"},
       {icon:Bank,title:"Donate by Interac E-Transfer",fee:"0% fee",copy:<>Go to your bank’s online-banking website and follow the prompts to send an Interac e-Transfer to <a href="mailto:interac-e-transfer@christshandscentre.org">interac-e-transfer@christshandscentre.org</a>.</>},
       {icon:FileText,title:"Donate by Cheque",fee:"0% fee",copy:<>Make cheque payable to <strong>“Christ’s Hands Centre”</strong> and mail to:<br/><br/><strong>11353 Peregrine Place<br/>Sidney, BC V8L 5S3<br/>Canada</strong></>},
       {icon:TrendUp,title:"Donate Appreciated Securities",copy:"Get charitable-donation credit for the market value of your stocks or bonds. Pay no capital gains tax. CHC gets 100% of market value — no commission.",cta:"DONATE APPRECIATED SECURITIES",href:"https://christshandscentre.org/donate/"},
-      {icon:Gift,title:"Donor Advised Funds",copy:"Recommend a grant from your DAF to support Christ’s Hands Centre Society’s mission.",cta:"GIVE VIA DAF",href:"https://christshandscentre.org/donate/donor-advised-funds"},
-      {icon:FileText,title:"Legacy Giving",copy:"Leave a gift in your will to support Christ’s Hands Centre — beyond your lifetime.",cta:"PLAN YOUR LEGACY",href:"https://christshandscentre.org/donate/legacy-giving"},
+      {icon:Gift,title:"Donor Advised Funds",copy:"Recommend a grant from your DAF to support Christ’s Hands Centre Society’s mission.",cta:"GIVE VIA DAF",href:"/donate/donor-advised-funds"},
+      {icon:FileText,title:"Legacy Giving",copy:"Leave a gift in your will to support Christ’s Hands Centre — beyond your lifetime.",cta:"PLAN YOUR LEGACY",href:"/donate/legacy-giving"},
       {icon:Car,title:"Donate Your Car",copy:<>Donate a Car Canada accepts vehicle donations for Christ’s Hands Centre. Free towing is provided in most areas across Canada, or you can drop off your vehicle to maximize your donation. Your car, truck, RV, boat, or motorcycle will either be recycled or sold at auction. Donate a Car Canada handles the details; after the donation is complete, you will receive a tax receipt.</>,cta:"DONATE A VEHICLE",href:"https://donatecar.ca/org/donate.php?charitypage=ChristsHandsCentre"},
     ],
     heroCopy:"You will be a Christ’s Hands Centre Hero when you contribute monthly toward the expenses of offering training and nutrition programs at Christ’s Hands: Skills-Training & Child-Development Centre, Kasangati, Uganda.",
@@ -56,10 +56,10 @@ const countries={
     taxCopy:"LOVEM Ministries has accepted Christ’s Hands Centre (CHC) as one of its ministries and extends IRS tax deduction to CHC under its 501(c)(3) umbrella.",
     notice:"USA-based donations can be made by online Zelle transfer or postal mail via check (both have 0% fee deducted), or by credit card via PayPal (2.2% deducted), but not via CanadaHelps.",
     options:[
-      {icon:CreditCard,title:"Donate Online via PayPal",fee:"2.2% fee deducted",copy:"Secure credit card processing through PayPal.",cta:"DONATE WITH PAYPAL",href:"https://christshandscentre.org/donate/"},
+      {icon:CreditCard,title:"Donate Online via PayPal",fee:"2.2% fee deducted",copy:"Secure credit card processing through PayPal.",paypalId:"5M8HTESCBYNKU",paypalPixel:"https://www.paypal.com/en_US/i/scr/pixel.gif"},
       {icon:Lightning,title:"Donate by Zelle",fee:"0% fee",copy:<>Go to your bank’s website and search for Zelle transfers. Send your donation to <a href="mailto:info@christshandscentre.org">info@christshandscentre.org</a>. We will acknowledge your donation by return email.</>},
       {icon:FileText,title:"Donate by Check",fee:"0% fee",copy:<>Make check payable to <strong>“Christ’s Hands Centre”</strong> and mail to:<br/><br/><strong>Internet for Humanity<br/>1096 Verbena Drive<br/>Austin, TX 78750<br/>USA</strong></>},
-      {icon:Gift,title:"Donor Advised Funds",copy:"Recommend a grant from your DAF to support Christ’s Hands Centre Society’s mission.",cta:"GIVE VIA DAF",href:"https://christshandscentre.org/donate/donor-advised-funds"},
+      {icon:Gift,title:"Donor Advised Funds",copy:"Recommend a grant from your DAF to support Christ’s Hands Centre Society’s mission.",cta:"GIVE VIA DAF",href:"/donate/donor-advised-funds"},
     ],
     footnote:"CanadaHelps is a separate CRA-registered Canadian Charity. Donations to CanadaHelps automatically receive CRA charitable-contribution tax receipts from CanadaHelps, not CHC, and are therefore not eligible for LOVEM Ministries IRS tax deduction.",
     heroCopy:"You will be a Christ’s Hands Centre Hero when you contribute monthly toward the expenses of offering training and nutrition programs at Christ’s Hands: Skills-Training & Child-Development Centre, Kasangati, Uganda.",
@@ -68,7 +68,7 @@ const countries={
   }
 };
 
-function GivingOption({option}){const Icon=option.icon;const external=option.href?.startsWith("http");return <article className="giving-option"><span className="giving-option-icon"><Icon size={22} weight="duotone"/></span><div className="giving-option-heading"><h4>{option.title}</h4>{option.fee&&<span>{option.fee}</span>}</div><div className="giving-option-copy">{option.copy}</div>{option.cta&&<a className="giving-option-link" href={option.href} {...(external?{target:"_blank",rel:"noopener noreferrer"}:{})}>{option.cta}<ArrowUpRight size={15} weight="bold"/></a>}</article>}
+function GivingOption({option}){const Icon=option.icon;const external=option.href?.startsWith("http");return <article className="giving-option"><span className="giving-option-icon"><Icon size={22} weight="duotone"/></span><div className="giving-option-heading"><h4>{option.title}</h4>{option.fee&&<span>{option.fee}</span>}</div><div className="giving-option-copy">{option.copy}</div>{option.paypalId&&<form className="paypal-donation-form" action="https://www.paypal.com/donate" method="post" target="_top"><input type="hidden" name="hosted_button_id" value={option.paypalId}/><button className="giving-option-link" type="submit">DONATE WITH PAYPAL<ArrowUpRight size={15} weight="bold"/></button><img alt="" src={option.paypalPixel} width="1" height="1"/></form>}{option.cta&&<a className="giving-option-link" href={option.href} {...(external?{target:"_blank",rel:"noopener noreferrer"}:{})}>{option.cta}<ArrowUpRight size={15} weight="bold"/></a>}</article>}
 
 function Sponsorship({country}){
   return <div className="sponsorship">
