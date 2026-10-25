@@ -5,17 +5,286 @@ import Footer from "@/components/Footer";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { getPosts } from "@/lib/sanity";
 
-const Button=({href,children,tone="dark"})=><Link className={`button ${tone}`} href={href}>{children}<ArrowUpRight size={14} weight="bold"/></Link>;
-const stats=[["342","students currently enrolled","240 adults and 102 children"],["782","graduates who completed training",""],["98%","of expenditure invested directly in programs",""],["100%","of programs free of charge and volunteer-driven",""]];
+const Button = ({ href, children, tone = "dark" }) => (
+  <Link className={`button ${tone}`} href={href}>
+    {children}
+    <ArrowUpRight size={14} weight="bold" />
+  </Link>
+);
+const stats = [
+  ["342", "students currently enrolled", "240 adults and 102 children"],
+  ["782", "graduates who completed training", ""],
+  ["98%", "of expenditure invested directly in programs", ""],
+  ["100%", "of programs free of charge and volunteer-driven", ""],
+];
 
-export default async function Home(){const posts=await getPosts();return <><Header/><main id="main" className="home-main">
-<section className="hero"><Image src="/images/chs/programs-cover.jpeg" alt="" fill priority className="cover"/><div className="hero-shade"/><div className="hero-inner wrap"><div className="hero-copy"><h1>The Poverty, Skills, Care, and Mental Health Crisis Facing Vulnerable Families in Uganda</h1><p>Christ’s Hands Centre exists to restore dignity, stability, and opportunity by addressing these challenges together - skills, food, care, and emotional support - not in isolation.</p></div><aside className="hero-card"><h2>Support our Mission</h2><p>Your gift provides practical skills, meals, childcare, and emotional support so vulnerable families can move from daily survival toward self-reliance.</p><Button href="/donate" tone="light">DONATE</Button></aside></div></section>
-<section className="section paper"><div className="wrap"><div className="section-lead"><h2>Impact to date</h2><p></p></div><div className="stats">{stats.map(([n,t,d])=><article className="stat" key={t}><strong>{n}</strong><h3>{t}</h3>{d&&<p>{d}</p>}</article>)}</div></div></section>
-<section className="section ink white-text"><div className="wrap"><div className="section-lead wide"><h2>An integrated approach to building healthier, more resilient communities</h2><p>CHC prioritizes whole-family empowerment. By addressing the interconnected realities of hunger, childcare, skills, and emotional wellbeing, CHC creates pathways for vulnerable women and children to move beyond crisis toward stable, self-reliant lives.</p></div><div className="issues"><article><span>01</span><h3>An Integrated Approach</h3><p>By supporting both caregivers and children simultaneously, the initiative addresses intergenerational vulnerability and creates an enabling environment for lifelong learning, resilience, and social mobility.</p></article><article><span>02</span><h3>Improved Learner Outcomes</h3><p>By addressing the full set of economic, social, and psychosocial barriers affecting participation- particularly for vulnerable women and youth - completion, and post-training outcomes are better assured.</p></article><article><span>03</span><h3>Locally Relevant</h3><p>Training is designed around locally relevant trades enabling learners to deploy skills to meet local demand immediately after completion</p></article></div></div></section>
-<Split image="/images/chs/home-who.jpeg" title="Who we are" background="sand"><p>Christ’s Hands’s Centre Society is an international Canadian Charity founded in 2024 in response to the tragic suffering (and death by suicide) among women and children in Kasangati, rural Uganda – vulnerable families facing extreme poverty, hunger, lack of childcare, and limited opportunities for education or employment.</p><p>What began as a grassroots effort to support vulnerable women, particularly single mothers, has evolved into a community-owned technical and vocational education training (TVET) centre that integrates training with essential wraparound supports, including childcare and preschool education, nutrition support, psychosocial services, and sanitary hygiene to strengthen the stability and resilience of some of the most vulnerable households in the community.</p><Link className="text-link" href="/about">Learn more about Christ’s Hands Centre Society</Link></Split>
-<Split image="/images/chs/home-work.jpeg" title="Learn more about our work" background="brand" white><p>CHC delivers an integrated, community-embedded TVET program in Kasangati and surrounding communities that combines vocational skills training with essential family supports. Programs emphasize practical competence and immediate usability, supported by entrepreneurship and financial literacy. To remove participation barriers, CHC integrates daily meals, childcare and early education, psychosocial support, and sanitary supplies for women.</p><Button href="/programs" tone="light">LEARN MORE ABOUT OUR PROGRAMS</Button></Split>
-<section className="section hero-surface white-text"><div className="wrap impact-grid"><div><h2>Impact and Accountability</h2><p>Christ’s hands Centre publishes annual and impact reports to share our progress, document our stewardship of donor funds, and hold ourselves accountable to the communities we serve. We are committed to transparency in all that we do.</p><Button href="/impact" tone="light">READ OUR IMPACT AND ANNUAL REPORTS</Button></div><div className="photo"><Image src="/images/chs/home-accountability.jpeg" alt="" fill className="cover"/></div></div></section>
-<section className="section sand stories"><div className="wrap"><div className="section-lead"><h2>Success Stories</h2><p></p></div><div className="story-grid">{posts.slice(0,2).map(post=><Link href={`/blog/${post.slug}`} className="story" key={post.slug}><div className="story-image"><Image src={post.image} alt={post.imageAlt || ""} fill className="cover"/></div><div><h3>{post.title}</h3><p>{post.excerpt}</p><span className="text-link">View More</span></div></Link>)}</div><Link className="text-link" href="/success-stories">Read all success stories</Link></div></section>
-</main><Footer/></>}
+export default async function Home() {
+  const posts = await getPosts();
+  return (
+    <>
+      <Header />
+      <main id="main" className="home-main">
+        <section className="hero">
+          <Image
+            src="/images/chs/cta-training-group.jpg"
+            alt="Women participating in vocational skills training at Christ’s Hands Centre"
+            fill
+            priority
+            className="cover home-hero-image"
+          />
+          <div className="hero-shade" />
+          <div className="hero-inner wrap">
+            <div className="hero-copy">
+              <h1>
+                The Poverty, Skills, Care, and Mental Health Crisis Facing
+                Vulnerable Families in Uganda
+              </h1>
+              <p>
+                Christ’s Hands Centre exists to restore dignity, stability, and
+                opportunity by addressing these challenges together - skills,
+                food, care, and emotional support - not in isolation.
+              </p>
+            </div>
+            <aside className="hero-card">
+              <h2>Sponsor a mother</h2>
+              <p>
+                CA$25/month helps one mother to complete a vocational training
+                program.
+              </p>
+              <Button href="/donate" tone="light">
+                DONATE
+              </Button>
+            </aside>
+          </div>
+        </section>
+        <section className="section paper">
+          <div className="wrap">
+            <div className="section-lead">
+              <h2>Impact to date</h2>
+              <p></p>
+            </div>
+            <div className="stats">
+              {stats.map(([n, t, d]) => (
+                <article className="stat" key={t}>
+                  <strong>{n}</strong>
+                  <h3>{t}</h3>
+                  {d && <p>{d}</p>}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="section ink white-text">
+          <div className="wrap">
+            <div className="section-lead wide">
+              <h2>
+                An integrated approach to building healthier, more resilient
+                communities
+              </h2>
+              <p>
+                CHC prioritizes whole-family empowerment. By addressing the
+                interconnected realities of hunger, childcare, skills, and
+                emotional wellbeing, CHC creates pathways for vulnerable women
+                and children to move beyond crisis toward stable, self-reliant
+                lives.
+              </p>
+            </div>
+            <div className="issues">
+              <article>
+                <span>01</span>
+                <h3>An Integrated Approach</h3>
+                <p>
+                  By supporting both caregivers and children simultaneously, the
+                  initiative addresses intergenerational vulnerability and
+                  creates an enabling environment for lifelong learning,
+                  resilience, and social mobility.
+                </p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Improved Learner Outcomes</h3>
+                <p>
+                  By addressing the full set of economic, social, and
+                  psychosocial barriers affecting participation- particularly
+                  for vulnerable women and youth - completion, and post-training
+                  outcomes are better assured.
+                </p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Locally Relevant</h3>
+                <p>
+                  Training is designed around locally relevant trades enabling
+                  learners to deploy skills to meet local demand immediately
+                  after completion
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <Split
+          image="/images/chs/home-who.jpeg"
+          title="Who we are"
+          background="sand"
+        >
+          <p>
+            Christ’s Hands’s Centre Society is an international Canadian Charity
+            founded in 2024 in response to the tragic suffering (and death by
+            suicide) among women and children in Kasangati, rural Uganda –
+            vulnerable families facing extreme poverty, hunger, lack of
+            childcare, and limited opportunities for education or employment.
+          </p>
+          <p>
+            What began as a grassroots effort to support vulnerable women,
+            particularly single mothers, has evolved into a community-owned
+            technical and vocational education training (TVET) centre that
+            integrates training with essential wraparound supports, including
+            childcare and preschool education, nutrition support, psychosocial
+            services, and sanitary hygiene to strengthen the stability and
+            resilience of some of the most vulnerable households in the
+            community.
+          </p>
+          <Link className="text-link" href="/about">
+            Learn more about Christ’s Hands Centre Society
+          </Link>
+        </Split>
+        <Split
+          image="/images/chs/home-work.jpeg"
+          title="Learn more about our work"
+          background="brand"
+          white
+        >
+          <p>
+            CHC delivers an integrated, community-embedded TVET program in
+            Kasangati and surrounding communities that combines vocational
+            skills training with essential family supports. Programs emphasize
+            practical competence and immediate usability, supported by
+            entrepreneurship and financial literacy. To remove participation
+            barriers, CHC integrates daily meals, childcare and early education,
+            psychosocial support, and sanitary supplies for women.
+          </p>
+          <Button href="/programs" tone="light">
+            LEARN MORE ABOUT OUR PROGRAMS
+          </Button>
+        </Split>
+        <section className="section paper home-funding-section">
+          <div className="wrap home-funding-cta">
+            <div className="home-funding-gallery">
+              <div className="home-funding-main">
+                <Image
+                  src="/images/chs/cta-training-group.jpg"
+                  alt="Women participating in practical vocational training at Christ’s Hands Centre"
+                  fill
+                  className="cover"
+                />
+              </div>
+              <div className="home-funding-small">
+                <Image
+                  src="/images/chs/cta-tailoring-training.jpg"
+                  alt="A mother receiving hands-on tailoring instruction"
+                  fill
+                  className="cover"
+                />
+              </div>
+              <div className="home-funding-small">
+                <Image
+                  src="/images/chs/cta-bakery-training.jpg"
+                  alt="Students taking part in bakery training"
+                  fill
+                  className="cover"
+                />
+              </div>
+            </div>
+            <div className="home-funding-copy">
+              <p className="eyebrow">Sponsor ten mothers</p>
+              <h2>
+                <strong>CA$3,000.</strong> <span>CA$300 per mother</span>
+              </h2>
+              <p>
+                Will enable 10 mothers to complete vocational training programs
+                of their choice and help to break the cycle of intergenerational
+                poverty across rural communities in Uganda.
+              </p>
+              <Button href="/donate">DONATE</Button>
+            </div>
+          </div>
+        </section>
+        <section className="section hero-surface white-text">
+          <div className="wrap impact-grid">
+            <div>
+              <h2>Impact and Accountability</h2>
+              <p>
+                Christ’s hands Centre publishes annual and impact reports to
+                share our progress, document our stewardship of donor funds, and
+                hold ourselves accountable to the communities we serve. We are
+                committed to transparency in all that we do.
+              </p>
+              <Button href="/impact" tone="light">
+                READ OUR IMPACT AND ANNUAL REPORTS
+              </Button>
+            </div>
+            <div className="photo">
+              <Image
+                src="/images/chs/home-accountability.jpeg"
+                alt=""
+                fill
+                className="cover"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="section sand stories">
+          <div className="wrap">
+            <div className="section-lead">
+              <h2>Success Stories</h2>
+              <p></p>
+            </div>
+            <div className="story-grid">
+              {posts.slice(0, 2).map((post) => (
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="story"
+                  key={post.slug}
+                >
+                  <div className="story-image">
+                    <Image
+                      src={post.image}
+                      alt={post.imageAlt || ""}
+                      fill
+                      className="cover"
+                    />
+                  </div>
+                  <div>
+                    <h3>{post.title}</h3>
+                    <p>{post.excerpt}</p>
+                    <span className="text-link">View More</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <Link className="text-link" href="/success-stories">
+              Read all success stories
+            </Link>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
 
-function Split({image,title,background,white,children}){return <section className={`section ${background} ${white?"white-text":""}`}><div className="wrap split"><div className="photo"><Image src={image} alt="" fill className="cover"/></div><div className="split-copy"><h2>{title}</h2><div>{children}</div></div></div></section>}
+function Split({ image, title, background, white, children }) {
+  return (
+    <section className={`section ${background} ${white ? "white-text" : ""}`}>
+      <div className="wrap split">
+        <div className="photo">
+          <Image src={image} alt="" fill className="cover" />
+        </div>
+        <div className="split-copy">
+          <h2>{title}</h2>
+          <div>{children}</div>
+        </div>
+      </div>
+    </section>
+  );
+}

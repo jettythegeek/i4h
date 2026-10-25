@@ -13,3 +13,48 @@
 
 .donation-chooser>.eyebrow{color:var(--brand);margin-bottom:14px}.donation-lead{max-width:1060px;margin:-24px 0 42px;color:#5b5652;font-size:18px;line-height:1.65}.donation-click-title{margin:0 0 24px;font:750 28px Outfit}.registration-title{margin:20px 0 5px;font:750 20px Outfit}.registration-number{margin:0!important;color:var(--brand)!important;font-weight:750}.giving-notice{margin:24px 0!important;padding:18px 20px;border-left:4px solid var(--secondary);background:var(--blush);color:var(--ink)!important}.giving-section-title{grid-column:1/-1;margin:36px 0 0!important;padding-top:28px;border-top:3px solid color-mix(in srgb,var(--brand) 18%,white);font:750 26px Outfit!important}.giving-option-slot{display:contents}.giving-section-break{margin-top:14px!important}.giving-option-copy{margin-bottom:18px;color:#5b5652;font-size:15px;line-height:1.6}.giving-option-copy a,.hero-giving a{color:var(--brand);font-weight:700;text-decoration:underline}.giving-option-copy strong{color:var(--ink)}.giving-footnote{margin:32px 0;padding:20px;border-left:4px solid var(--secondary);background:var(--blush)}.sponsorship{margin-top:44px;padding-top:42px;border-top:3px solid color-mix(in srgb,var(--brand) 18%,white)}.sponsorship>h3{margin:48px 0 0!important;font-size:34px!important}.hero-giving{padding:34px;border:2px solid var(--ink);border-radius:8px;background:var(--paper)}.hero-giving h3{margin:18px 0 12px!important;font-size:30px!important}.hero-giving p{max-width:980px}.sponsorship-levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}.sponsorship-levels article{padding:28px;border:2px solid var(--ink);border-radius:8px;background:var(--paper)}.sponsorship-levels article>span,.sponsor-number{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;background:var(--brand);color:#fff;font:750 14px Outfit}.sponsorship-levels h4,.program-sponsorship>h4{margin:18px 0 14px;font:750 24px Outfit}.sponsorship-levels strong{display:block;color:var(--brand);font:750 23px Outfit}.sponsorship-levels em{display:block;margin:5px 0;color:#5b5652;font-style:normal}.program-sponsorship{margin-top:18px;padding:32px;border:2px solid var(--ink);border-radius:8px;background:#fff}.program-funding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}.program-funding-grid article{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:22px;border:1px solid #17171935;border-radius:7px;background:var(--paper)}.program-funding-grid article>span{color:var(--brand);font:750 13px Outfit}.program-funding-grid h5{margin:0 0 10px;font:750 18px Outfit}.program-funding-grid h5 b{display:inline-block;margin-left:8px;padding:3px 7px;border-radius:99px;background:var(--secondary);color:#fff;font-size:9px;letter-spacing:.1em}.program-funding-grid strong{color:var(--brand-dark)}.program-funding-grid p{margin:8px 0 0!important;font-size:14px!important}
 @media(max-width:720px){.donation-lead{margin:-8px 0 30px;font-size:16px}.giving-section-title{font-size:23px!important}.sponsorship-levels,.program-funding-grid{grid-template-columns:1fr}.hero-giving,.program-sponsorship{padding:22px}.sponsorship>h3{font-size:28px!important}.program-funding-grid article{padding:18px}.giving-option{min-height:0}}
+
+/* Keep every expanded donation flow inside narrow mobile viewports. */
+@media(max-width:720px){
+  .donation-chooser-section{overflow-x:clip}
+  .donation-chooser{width:calc(100% - 24px);max-width:100%;padding:28px 16px}
+  .donation-country-grid,.donation-country-grid.has-open,.donation-country-item,.donation-country-item>button,.donation-country-panel,.giving-option-list,.giving-option-slot,.giving-option,.sponsorship,.hero-giving,.sponsorship-levels,.program-sponsorship,.program-funding-grid,.program-funding-grid article{width:100%;max-width:100%;min-width:0}
+  .donation-country-item>button{min-height:164px;padding:22px 18px}
+  .donation-country-name{width:100%;gap:12px}
+  .donation-country-name svg{width:62px;height:36px}
+  .donation-country-name strong{min-width:0;font-size:25px;overflow-wrap:anywhere}
+  .donation-country-description{font-size:15px;line-height:1.45}
+  .donation-country-toggle{padding-top:18px;gap:8px;font-size:14px}
+  .donation-country-panel{padding:25px 16px;overflow:hidden}
+  .donation-country-panel h3{font-size:25px;line-height:1.08;overflow-wrap:anywhere}
+  .donation-country-panel p,.giving-option-copy,.giving-option-copy a,.hero-giving a,.giving-footnote{overflow-wrap:anywhere;word-break:break-word}
+  .giving-panel-intro{font-size:15px;line-height:1.58}
+  .registration-title{font-size:18px}
+  .registration-number{font-size:14px!important}
+  .giving-section-title{margin-top:28px!important;padding-top:22px;font-size:21px!important}
+  .giving-option-list{margin-top:24px}
+  .giving-option{padding:20px 17px}
+  .giving-option-heading{margin-top:16px;gap:8px}
+  .giving-option-heading h4{font-size:20px;line-height:1.15}
+  .giving-option-copy{font-size:14px;line-height:1.55}
+  .giving-option-link,.paypal-donation-form .giving-option-link{min-height:46px;padding:11px 12px;white-space:normal;text-align:center;line-height:1.35;overflow-wrap:anywhere}
+  .sponsorship{margin-top:34px;padding-top:32px}
+  .hero-giving,.program-sponsorship{padding:20px 16px}
+  .hero-giving h3{font-size:25px!important}
+  .sponsorship>h3{margin-top:38px!important;font-size:26px!important;line-height:1.08}
+  .sponsorship-levels article{padding:20px 17px}
+  .sponsorship-levels h4,.program-sponsorship>h4{font-size:21px;line-height:1.15}
+  .sponsorship-levels strong{font-size:20px}
+  .program-funding-grid article{grid-template-columns:27px minmax(0,1fr);gap:10px;padding:16px 13px}
+  .program-funding-grid article>div{min-width:0}
+  .program-funding-grid h5{font-size:16px;line-height:1.2;overflow-wrap:anywhere}
+  .program-funding-grid h5 b{margin:6px 0 0;display:block;width:max-content;max-width:100%}
+  .program-funding-grid strong,.program-funding-grid p{overflow-wrap:anywhere}
+}
+
+@media(max-width:380px){
+  .donation-chooser{width:calc(100% - 16px);padding:24px 12px}
+  .donation-country-panel{padding:22px 12px}
+  .donation-country-name strong{font-size:23px}
+  .giving-option{padding:18px 14px}
+}

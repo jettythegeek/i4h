@@ -1,2 +1,234 @@
-.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:52px}.report-card{padding:34px;border:2px solid var(--ink);border-radius:8px;background:var(--paper)}.report-card .report-icon,.report-modal .report-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:8px;background:#0000ff12;color:var(--brand)}.report-card h3{margin:10px 0 12px;font:750 30px Outfit}.report-card>p:not(.eyebrow){color:#5b5652;line-height:1.65}.report-modal-backdrop{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;background:#171719a8}.report-modal{position:relative;width:min(560px,100%);padding:38px;border:3px solid var(--ink);border-radius:10px;background:var(--paper);box-shadow:0 24px 60px #0005}.report-modal-close{position:absolute;top:18px;right:18px;width:44px;height:44px;display:grid;place-items:center;border:1px solid #17171940;border-radius:7px;background:#fff}.report-modal h2{margin:20px 54px 10px 0;font:750 34px/1.05 Outfit}.report-modal>p{color:#5b5652;line-height:1.6}.report-modal form{display:grid;gap:18px;margin-top:24px}.report-modal label{display:grid;gap:8px;font:700 15px Outfit}.report-modal input{height:52px;padding:0 14px;border:2px solid var(--ink);border-radius:7px;background:#fff;font:inherit}.report-modal .button{width:100%;margin-top:2px}.hero-card p{margin:16px 0 0;line-height:1.5}
-@media(max-width:720px){.report-grid{grid-template-columns:1fr;margin-top:34px}.report-card{padding:26px}.report-modal{padding:28px 22px}.report-modal h2{font-size:28px}.sponsor-mother-photo{min-height:390px}.sponsor-mother-photo img{object-position:82% center}}
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 52px;
+}
+.report-card {
+  padding: 34px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.report-card .report-icon,
+.report-modal .report-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #0000ff12;
+  color: var(--brand);
+}
+.report-card h3 {
+  margin: 10px 0 12px;
+  font: 750 30px Outfit;
+}
+.report-card > p:not(.eyebrow) {
+  color: #5b5652;
+  line-height: 1.65;
+}
+.report-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #171719a8;
+}
+.report-modal {
+  position: relative;
+  width: min(560px, 100%);
+  padding: 38px;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 0 24px 60px #0005;
+}
+.report-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #17171940;
+  border-radius: 7px;
+  background: #fff;
+}
+.report-modal h2 {
+  margin: 20px 54px 10px 0;
+  font: 750 34px/1.05 Outfit;
+}
+.report-modal > p {
+  color: #5b5652;
+  line-height: 1.6;
+}
+.report-modal form {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+.report-modal label {
+  display: grid;
+  gap: 8px;
+  font: 700 15px Outfit;
+}
+.report-modal input {
+  height: 52px;
+  padding: 0 14px;
+  border: 2px solid var(--ink);
+  border-radius: 7px;
+  background: #fff;
+  font: inherit;
+}
+.report-modal .button {
+  width: 100%;
+  margin-top: 2px;
+}
+.hero-card p {
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+@media (max-width: 720px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+    margin-top: 34px;
+  }
+  .report-card {
+    padding: 26px;
+  }
+  .report-modal {
+    padding: 28px 22px;
+  }
+  .report-modal h2 {
+    font-size: 28px;
+  }
+  .sponsor-mother-photo {
+    min-height: 390px;
+  }
+  .sponsor-mother-photo img {
+    object-position: 82% center;
+  }
+}
+
+.home-funding-section {
+  padding: 76px 0;
+}
+.home-funding-cta {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  background: #fff;
+}
+.home-funding-gallery {
+  min-height: 560px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  background: var(--ink);
+}
+.home-funding-main,
+.home-funding-small {
+  position: relative;
+  overflow: hidden;
+}
+.home-funding-main {
+  grid-row: 1/-1;
+}
+.home-funding-main img {
+  object-position: center;
+}
+.home-funding-small img {
+  object-position: center;
+}
+.home-funding-copy {
+  padding: 58px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--paper);
+}
+.home-funding-copy .eyebrow {
+  color: var(--brand);
+}
+.home-funding-copy h2 {
+  margin: 18px 0 26px;
+  font: 750 clamp(42px, 5vw, 68px)/0.96 Outfit;
+}
+.home-funding-copy h2 strong,
+.home-funding-copy h2 span {
+  display: block;
+}
+.home-funding-copy h2 strong {
+  color: var(--brand);
+}
+.home-funding-copy h2 span {
+  margin-top: 10px;
+  font-size: 0.55em;
+  line-height: 1.1;
+}
+.home-funding-copy > p:not(.eyebrow) {
+  margin: 0;
+  color: #5b5652;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.home-funding-copy .button {
+  align-self: flex-start;
+}
+.client-giving-ladder .info-card p {
+  font-weight: 600;
+}
+.client-giving-ladder .info-card strong {
+  color: var(--brand);
+  font: 750 18px Outfit;
+}
+@media (max-width: 900px) {
+  .home-funding-cta {
+    grid-template-columns: 1fr;
+  }
+  .home-funding-gallery {
+    min-height: 480px;
+  }
+  .home-funding-copy {
+    padding: 46px 38px;
+  }
+}
+@media (max-width: 720px) {
+  .home-funding-section {
+    padding: 52px 0;
+  }
+  .home-funding-gallery {
+    min-height: 430px;
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+  .home-funding-copy {
+    padding: 34px 24px;
+  }
+  .home-funding-copy h2 {
+    font-size: 39px;
+  }
+  .home-funding-copy > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+  .home-funding-copy .button {
+    width: 100%;
+  }
+}
+/* Keep the homepage hero focused on the training group at every viewport. */
+.home-hero-image {
+  object-position: center center;
+}
+
+@media (max-width: 720px) {
+  .home-hero-image {
+    object-position: 58% center;
+  }
+}
