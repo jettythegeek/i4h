@@ -12,8 +12,9 @@ const groups = [
   { label: "What We Do", href: "/what-we-do", items: [["Where We Work", "/what-we-do#where", "/images/chs/where-we-work.jpeg"], ["Who We Serve", "/what-we-do#serve", "/images/chs/home-who.jpeg"], ["What We Prioritize", "/what-we-do#priorities", "/images/chs/home-accountability.jpeg"], ["Success Stories", "/success-stories", "/images/chs/impact.jpeg"]] },
   { label: "Programs", href: "/programs" },
   { label: "Impact", href: "/impact" },
-  { label: "Blog", href: "/blog" },
   { label: "Support Our Mission", href: "/donate", small: true, items: [["Partner With Us", "/partner", "/images/chs/partnerships-cover.jpeg"], ["Donate", "/donate", "/images/chs/donate-cover.jpeg"]] },
+  { label: "Contact", href: "/contact" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function Highlight({ text, query }) {
