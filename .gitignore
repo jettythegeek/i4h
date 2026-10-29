@@ -25,3 +25,6 @@ Thumbs.db
 # TypeScript cache
 *.tsbuildinfo
 next-env.d.ts
+
+# Local report-download lead log (contains personal information)
+/data/report-download-leads.txt
