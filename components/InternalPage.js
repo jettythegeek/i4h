@@ -20,6 +20,8 @@ import PostGrid from "@/components/PostGrid";
 import MobileSectionTabs from "@/components/MobileSectionTabs";
 import DonationChooser from "@/components/DonationChooser";
 import ImpactReports from "@/components/ImpactReports";
+import ContactForm from "@/components/ContactForm";
+import DonorAdvisedFund from "@/components/DonorAdvisedFund";
 
 const pageData = {
   about: {
@@ -78,9 +80,10 @@ const pageData = {
     image: "/images/chs/home-work.jpeg",
   },
   contact: {
-    eyebrow: "Contact us",
-    title: "Contact Christ’s Hands Centre",
-    intro: "Contact our team in Kasangati, Uganda.",
+    eyebrow: "Canada and Uganda",
+    title: "We’d love to hear from you.",
+    intro:
+      "Whether you’re interested in supporting our work, partnering with us, or learning more about our programs, please get in touch.",
     image: "/images/chs/public-private.jpeg",
   },
   "privacy-policy": {
@@ -154,15 +157,36 @@ export default async function InternalPage({ slug }) {
     slug === "blog" || slug === "success-stories" ? await getPosts() : [];
   return (
     <main className="internal-main">
-      <section className="page-hero">
-        <Image src={p.image} alt="" fill priority className="cover" />
-        <div className="page-hero-shade" />
-        <div className="wrap page-hero-copy">
-          <span className="eyebrow">{p.eyebrow}</span>
-          <h1>{p.title}</h1>
-          <p>{p.intro}</p>
-        </div>
-      </section>
+      {slug === "contact" ? (
+        <section className="contact-page-hero">
+          <div className="wrap">
+            <div className="contact-hero-copy">
+              <span className="eyebrow">{p.eyebrow}</span>
+              <h1>{p.title}</h1>
+              <p>{p.intro}</p>
+            </div>
+            <div className="contact-hero-image">
+              <Image
+                src={p.image}
+                alt="Christ’s Hands Centre team supporting communities in Uganda"
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="page-hero">
+          <Image src={p.image} alt="" fill priority className="cover" />
+          <div className="page-hero-shade" />
+          <div className="wrap page-hero-copy">
+            <span className="eyebrow">{p.eyebrow}</span>
+            <h1>{p.title}</h1>
+            <p>{p.intro}</p>
+          </div>
+        </section>
+      )}
       <MobileSectionTabs items={sectionTabs[slug]} />
       {slug === "donate" && <DonationChooser />}
       {renderBody(slug, posts)}
@@ -636,7 +660,7 @@ function renderBody(slug, posts) {
             </div>
           </section>
           <ImageSection
-            image="/images/chs/sponsor-mother.jpeg"
+            image="/images/chs/cta-tailoring-training.jpg"
             title="CA$300"
             brand
             imageClass="sponsor-mother-photo"
@@ -675,6 +699,7 @@ function renderBody(slug, posts) {
               </div>
             </div>
           </section>
+          <DonorAdvisedFund />
           <GivingOptions />
         </>
       );
@@ -689,24 +714,82 @@ function renderBody(slug, posts) {
       );
     case "contact":
       return (
-        <section className="section paper">
-          <div className="wrap contact-cards">
-            <Info title="Email">
-              <EnvelopeSimple size={28} />
-              <a href="mailto:Ntonomoreen@christshandsskill.org">
-                Ntonomoreen@christshandsskill.org
-              </a>
-            </Info>
-            <Info title="Phone">
-              <Phone size={28} />
-              <a href="tel:+256704801045">+256704801045</a>
-            </Info>
-            <Info title="Location">
-              <MapPin size={28} />
-              <p>Kasangati, Uganda</p>
-            </Info>
-          </div>
-        </section>
+        <>
+          <section className="contact-enquiry-section">
+            <div className="wrap contact-enquiry-layout">
+              <ContactForm />
+              <aside
+                className="contact-direct"
+                aria-label="Direct contact details"
+              >
+                <h2>Direct contact</h2>
+                <section className="contact-detail-group">
+                  <h3>
+                    <EnvelopeSimple size={22} weight="duotone" />
+                    Public email
+                  </h3>
+                  <dl>
+                    <dt>Email</dt>
+                    <dd>
+                      <a href="mailto:Ntonomoreen@christshandsskill.org">
+                        Ntonomoreen@christshandsskill.org
+                      </a>
+                    </dd>
+                  </dl>
+                </section>
+                <section className="contact-detail-group">
+                  <h3>
+                    <MapPin size={22} weight="duotone" />
+                    Canada
+                  </h3>
+                  <dl>
+                    <dt>Organization</dt>
+                    <dd>Christ’s Hands Centre Society</dd>
+                    <dt>Registration</dt>
+                    <dd>Charity registration No: 79734 2367 RR0001</dd>
+                  </dl>
+                </section>
+                <section className="contact-detail-group">
+                  <h3>
+                    <MapPin size={22} weight="duotone" />
+                    Uganda
+                  </h3>
+                  <dl>
+                    <dt>Address</dt>
+                    <dd>Kasangati, Uganda</dd>
+                    <dt>Telephone</dt>
+                    <dd>
+                      <a href="tel:+256704801045">+256 704 801 045</a>
+                    </dd>
+                    <dt>Email</dt>
+                    <dd>
+                      <a href="mailto:Ntonomoreen@christshandsskill.org">
+                        Ntonomoreen@christshandsskill.org
+                      </a>
+                    </dd>
+                  </dl>
+                </section>
+              </aside>
+            </div>
+          </section>
+          <section className="contact-support-cta">
+            <div className="wrap">
+              <h2>Sponsor a mother while we talk.</h2>
+              <div>
+                <p>
+                  CA$25/month helps one mother complete a vocational training
+                  program.
+                </p>
+                <div className="buttons">
+                  <Button href="/donate" tone="light">
+                    Donate
+                  </Button>
+                  <Button href="/partner">Partner with us</Button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
       );
     case "privacy-policy":
     case "terms-of-service":
