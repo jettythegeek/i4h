@@ -63,8 +63,12 @@ export default function DonorAdvisedFund() {
               </span>
             </span>
             <span className="daf-summary-toggle" aria-hidden="true">
-              <span className="daf-show">SHOW DETAILS</span>
-              <span className="daf-hide">HIDE DETAILS</span>
+              <span className="daf-show">
+                SHOW HOW TO GIVE THROUGH YOUR DAF
+              </span>
+              <span className="daf-hide">
+                HIDE HOW TO GIVE THROUGH YOUR DAF
+              </span>
               <CaretDown size={22} weight="bold" />
             </span>
           </summary>
