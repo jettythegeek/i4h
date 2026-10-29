@@ -34,5 +34,5 @@
   .mobile-section-track::-webkit-scrollbar{display:none}
   .mobile-section-track a{flex:0 0 auto;min-height:44px;padding:0 14px;display:flex;align-items:center;border-radius:7px;color:#625f5d;font:700 14px Outfit;white-space:nowrap;scroll-snap-align:start}
   .mobile-section-track a.active{background:var(--brand);color:#fff}
-  .internal-main section[id]{scroll-margin-top:156px}
+  .internal-main section[id],.internal-main .daf-accordion[id]{scroll-margin-top:156px}
 }
