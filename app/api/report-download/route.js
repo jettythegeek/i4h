@@ -125,10 +125,12 @@ export async function POST(request) {
   try {
     await recordLead(entry);
   } catch (error) {
-    console.error("Unable to record report download lead.", error);
-    return jsonError(
-      "The download service is temporarily unavailable. Please try again shortly.",
-      503
+    // Lead capture should never prevent a visitor from receiving the report.
+    // Keep the failure visible in server logs so storage can be configured or
+    // repaired independently of the download flow.
+    console.error(
+      "Unable to record report download lead; continuing with download.",
+      error
     );
   }
 
