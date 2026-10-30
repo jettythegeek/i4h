@@ -8,6 +8,7 @@ const reports = [
     id: "impact-report-2025",
     title: "2025 Impact Report",
     filename: "CHC_Impact_Report_2025.pdf",
+    leadDestination: "mailchimp",
     description:
       "Program outcomes and the difference whole-family support is making for women, youth, and children in Uganda.",
   },
@@ -15,6 +16,7 @@ const reports = [
     id: "annual-report-2025",
     title: "2025 Annual Report",
     filename: "CHC_Annual_Report_2025.pdf",
+    leadDestination: "mailchimp",
     description:
       "A transparent account of our work, stewardship, organizational progress, and results during 2025.",
   },
@@ -56,7 +58,8 @@ export default function ImpactReports() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.get("name"),
+          firstName: data.get("firstName"),
+          lastName: data.get("lastName"),
           email: data.get("email"),
           reportId: selected.id,
           website: data.get("website"),
@@ -157,14 +160,24 @@ export default function ImpactReports() {
             </p>
             <form onSubmit={downloadReport}>
               <label>
-                Name
+                First name
                 <input
                   ref={nameInputRef}
-                  name="name"
+                  name="firstName"
                   required
                   minLength={2}
-                  maxLength={100}
-                  autoComplete="name"
+                  maxLength={60}
+                  autoComplete="given-name"
+                />
+              </label>
+              <label>
+                Last name
+                <input
+                  name="lastName"
+                  required
+                  minLength={2}
+                  maxLength={60}
+                  autoComplete="family-name"
                 />
               </label>
               <label>
@@ -191,8 +204,9 @@ export default function ImpactReports() {
                 {!submitting && <ArrowUpRight size={14} weight="bold" />}
               </button>
               <p className="report-privacy-note">
-                We use these details only to record report interest and will not
-                display them publicly.
+                {selected.leadDestination === "mailchimp"
+                  ? "Your details are submitted securely to Christ’s Hands Centre’s Mailchimp audience and will not be displayed publicly."
+                  : "We use these details only to record report interest and will not display them publicly."}
               </p>
             </form>
           </div>

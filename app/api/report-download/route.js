@@ -9,11 +9,15 @@ const reports = {
     title: "2025 Impact Report",
     source: "chc-impact-report-2025.pdf",
     download: "CHC_Impact_Report_2025.pdf",
+    mailchimpAction:
+      "https://christshandscentre.us18.list-manage.com/subscribe/post?u=4e94255d48ee02dcf4790666e&id=3d9107742a&f_id=00c9b1e6f0",
   },
   "annual-report-2025": {
     title: "2025 Annual Report",
     source: "chc-annual-report-2025.pdf",
     download: "CHC_Annual_Report_2025.pdf",
+    mailchimpAction:
+      "https://christshandscentre.us18.list-manage.com/subscribe/post?u=4e94255d48ee02dcf4790666e&id=3d9107742a&f_id=00cab1e6f0",
   },
   "gifts-of-securities-form": {
     title: "Gifts of Securities Form",
@@ -86,6 +90,29 @@ async function recordLead(entry) {
   await appendFile(localLog, `${entry}\n`, "utf8");
 }
 
+async function subscribeToMailchimp(report, firstName, lastName, email) {
+  const form = new URLSearchParams({
+    FNAME: firstName,
+    LNAME: lastName,
+    EMAIL: email,
+    b_4e94255d48ee02dcf4790666e_3d9107742a: "",
+  });
+  const response = await fetch(report.mailchimpAction, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "User-Agent": "Christ's Hands Centre report download",
+    },
+    body: form.toString(),
+    redirect: "follow",
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Mailchimp returned ${response.status}.`);
+  }
+}
+
 export async function POST(request) {
   let payload;
   try {
@@ -98,11 +125,17 @@ export async function POST(request) {
     return jsonError("Invalid request.", 400);
   }
 
-  const name = clean(payload.name, 100);
+  const firstName = clean(payload.firstName, 60);
+  const lastName = clean(payload.lastName, 60);
   const email = clean(payload.email, 254).toLowerCase();
   const report = reports[clean(payload.reportId, 80)];
 
-  if (name.length < 2) return jsonError("Please enter your name.", 400);
+  if (firstName.length < 2) {
+    return jsonError("Please enter your first name.", 400);
+  }
+  if (lastName.length < 2) {
+    return jsonError("Please enter your last name.", 400);
+  }
   if (!emailPattern.test(email)) {
     return jsonError("Please enter a valid email address.", 400);
   }
@@ -116,22 +149,33 @@ export async function POST(request) {
   }).format(now);
   const entry = [
     "--- REPORT DOWNLOAD ---",
-    `Name: ${name}`,
+    `Name: ${firstName} ${lastName}`,
     `Email: ${email}`,
     `Report: ${report.title}`,
     `Date and time (Africa/Lagos): ${localDateTime}`,
     `Timestamp (UTC): ${now.toISOString()}`,
   ].join("\n");
-  try {
-    await recordLead(entry);
-  } catch (error) {
-    // Lead capture should never prevent a visitor from receiving the report.
-    // Keep the failure visible in server logs so storage can be configured or
-    // repaired independently of the download flow.
-    console.error(
-      "Unable to record report download lead; continuing with download.",
-      error
-    );
+
+  if (report.mailchimpAction) {
+    try {
+      await subscribeToMailchimp(report, firstName, lastName, email);
+    } catch (error) {
+      console.error("Unable to submit report lead to Mailchimp.", error);
+      return jsonError(
+        "We couldn’t submit your details to Mailchimp. Please try again.",
+        503
+      );
+    }
+  } else {
+    try {
+      await recordLead(entry);
+    } catch (error) {
+      console.error("Unable to record report download lead.", error);
+      return jsonError(
+        "The download service is temporarily unavailable. Please try again shortly.",
+        503
+      );
+    }
   }
 
   try {
