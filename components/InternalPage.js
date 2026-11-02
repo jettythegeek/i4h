@@ -189,12 +189,12 @@ export default async function InternalPage({ slug, initialReportId = null }) {
       )}
       <MobileSectionTabs items={sectionTabs[slug]} />
       {slug === "donate" && <DonationChooser />}
-      {renderBody(slug, posts)}
+      {renderBody(slug, posts, initialReportId)}
     </main>
   );
 }
 
-function renderBody(slug, posts) {
+function renderBody(slug, posts, initialReportId) {
   switch (slug) {
     case "about":
       return (
