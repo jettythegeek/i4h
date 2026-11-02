@@ -151,7 +151,7 @@ function GivingLadder() {
   );
 }
 
-export default async function InternalPage({ slug }) {
+export default async function InternalPage({ slug, initialReportId = null }) {
   const p = pageData[slug];
   const posts =
     slug === "blog" || slug === "success-stories" ? await getPosts() : [];
@@ -530,7 +530,7 @@ function renderBody(slug, posts) {
               <ImpactStats />
             </div>
           </section>
-          <ImpactReports />
+          <ImpactReports initialReportId={initialReportId} />
           <ImageSection
             image="/images/chs/home-accountability.jpeg"
             title="Canadian Registered Charity"

@@ -29,8 +29,10 @@ const reports = [
   },
 ];
 
-export default function ImpactReports() {
-  const [selected, setSelected] = useState(null);
+export default function ImpactReports({ initialReportId = null }) {
+  const [selected, setSelected] = useState(
+    () => reports.find((report) => report.id === initialReportId) ?? null
+  );
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const nameInputRef = useRef(null);
@@ -92,7 +94,7 @@ export default function ImpactReports() {
   }
 
   return (
-    <section className="section sand report-section">
+    <section className="section sand report-section" id="reports">
       <div className="wrap">
         <div className="section-lead">
           <h2>Impact and annual reports</h2>
